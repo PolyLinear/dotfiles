@@ -1,0 +1,3 @@
+# place in /etc/udev/rules.d/
+# ALPS Synaptics: Ignore as input device 
+ATTRS{name}=="*Synaptics TM3276-022", ENV{ID_INPUT}="", ENV{ID_INPUT_MOUSE}="", ENV{ID_INPUT_POINTINGSTICK}=""
