@@ -24,7 +24,6 @@ call plug#end()
 let g:ale_cpp_cc_options = '-std=c++17 -Wall'
 let g:ale_cpp_clangtidy_options = '-Wc++17-extensions'
 let g:ale_cpp_cppcheck_options = '--enable=warning,performance,unusedFunction'
-let g:deoplete#enable_at_startup = 1
 
 let g:neoformat_cpp_clangformat = {
     \ 'exe': 'clang-format',
@@ -65,3 +64,10 @@ endfunction
 
 let g:vimtex_view_method='zathura'
 
+let g:coc_global_extensions = [
+	    \ 'coc-sh',
+	    \ 'coc-clangd',
+	    \ 'coc-jedi',
+	    \ 'coc-rust-analyzer',
+	    \ 'coc-vimtex'
+	    \]
