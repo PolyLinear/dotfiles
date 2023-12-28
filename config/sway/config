@@ -86,7 +86,9 @@ set $menu bemenu-run  -b -H 20 -p ">_<"
 
 ### Output configuration
 
-output * bg ~/Pictures/martin-adams-pink-mountains.jpg fill
+#output * bg ~/Pictures/martin-adams-pink-mountains.jpg fill
+output * bg ~/.dotfiles/config/sway/martin-adams-pink-mountains.jpg fill
+
 
 #output * bg #101421 solid_color 
 #

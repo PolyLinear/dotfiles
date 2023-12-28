@@ -12,7 +12,6 @@ alias wpwd='wl-copy $(pwd)'
 alias wcp='cd $(wl-paste)'
 alias gd='github-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'
 alias disk='xxd -b -l 128'
-#alias neofetch='neofetch --ascii ~/.config/neofetch/aperture.ascii'
-PATH=$PATH:/usr/share/sway/scripts/:/home/think/scripts/
+PATH=$PATH:$HOME/scripts
 PS1='[\u@\h \W]\$ '
 
