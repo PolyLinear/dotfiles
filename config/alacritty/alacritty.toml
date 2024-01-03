@@ -46,3 +46,6 @@ white   = '#f8f8f8'
 
 [selection]
 save_to_clipboard = true
+
+[keyboard]
+bindings = [ {key = "Enter", mods = "Control|Shift", action = "SpawnNewInstance" } ]
