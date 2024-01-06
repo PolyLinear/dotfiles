@@ -69,5 +69,6 @@ let g:coc_global_extensions = [
 	    \ 'coc-clangd',
 	    \ 'coc-jedi',
 	    \ 'coc-rust-analyzer',
-	    \ 'coc-vimtex'
+	    \ 'coc-vimtex',
+	    \ 'coc-go'
 	    \]
