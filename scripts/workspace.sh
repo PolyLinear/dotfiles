@@ -12,8 +12,10 @@ function create_workspace() {
 
 	tmux new -s "$workspace_name" -y 54 -d
 	tmux send-keys -t 0 "cd "$dir"" C-m
+	tmux send-keys -t 0 "nvim" C-m
 	tmux split-window -v
 	tmux send-keys -t 1 "cd "$dir"" C-m
+	tmux send-keys -t 1 "clear" C-m
 	tmux resize-pane -D 15
 	tmux attach-session -t "$workspace_name"
 
