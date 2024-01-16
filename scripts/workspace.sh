@@ -1,12 +1,23 @@
 #!/bin/bash
 
 dir="$HOME"
-workspace_name="$2"
+workspace_name="$1"
 
-[[ -d $1 ]] && dir="$1"
+[[ -d $2 ]] && dir="$2"
 
 #shellcheck disable=SC2046
 read -r -a data <<<$(tmux ls | cut -d : -f 1)
+
+function create_workspace() {
+
+	tmux new -s "$workspace_name" -y 54 -d
+	tmux send-keys -t 0 "cd "$dir"" C-m
+	tmux split-window -v
+	tmux send-keys -t 1 "cd "$dir"" C-m
+	tmux resize-pane -D 15
+	tmux attach-session -t "$workspace_name"
+
+}
 
 if [ -n "$workspace_name" ]; then
 	while :; do
@@ -19,14 +30,9 @@ if [ -n "$workspace_name" ]; then
 			fi
 		done
 		if $no_repeats; then
-			tmux new -s "$workspace_name" -d
-			tmux send-keys -t 0 "cd "$dir"" C-m
-			tmux send-keys -t 1 "cd "$dir"" C-m
-			tmux split-window -v
-			tmux resize-pane -D 25
-			tmux attach-session -t "$workspace_name"
 			break
 		fi
 
 	done
 fi
+create_workspace
