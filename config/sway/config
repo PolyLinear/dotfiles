@@ -55,7 +55,7 @@ bindsym $mod+comma exec songinfo
 
 #screenshots
 bindsym XF86KeyBoard exec grimshot save area
-bindsym XF86Tools exec grimshot save screen
+#bindsym XF86Tools exec grimshot save screen
 
 
 set $gnome-schema org.gnome.desktop.interface
@@ -70,7 +70,7 @@ smart_borders true
 
 #colors
 # class                 border  bground text    indicator child_border
-client.focused          #000000 #458588 #FFFFFF #458588   #458588 
+client.focused          #000000 #A88D9C #FFFFFF #A88D9C   #A88D9C 
 client.focused_inactive #000000 #FFFFFF #000000 #FFFFFF   #000000
 client.unfocused        #09030d #000000 #FFFFFF #000000   #000000
 client.urgent           #44475A #FF5555 #000000 #FF5555   #FF5555
@@ -87,8 +87,8 @@ set $menu bemenu-run  -b -H 20 -p ">_<"
 ### Output configuration
 
 #output * bg ~/Pictures/martin-adams-pink-mountains.jpg fill
-output * bg ~/.dotfiles/config/sway/martin-adams-pink-mountains.jpg fill
-
+output * bg ~/Pictures/splash.jpg fill
+#output * bg ~/Pictures/pastel.png fill
 
 #output * bg #101421 solid_color 
 #
