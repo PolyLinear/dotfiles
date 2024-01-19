@@ -13,7 +13,7 @@ catppuccin.setup({
 			overlay1 = "#9C7F92",
 			overlay0 = "#866C7D",
 			surface2 = "#705867",
-			surface1 = "#B29CA9",
+			surface1 = "#B29CA9", --lighter cnumbers
 			surface0 = "#44313B",
 
 			base = "#352939",
