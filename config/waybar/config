@@ -15,8 +15,6 @@
 
     "position": "left",
 
-    // If height property would be not present, it'd be calculated dynamically
-    //"height":  ,
 
     "modules-left": [
         "sway/workspaces",
@@ -31,7 +29,7 @@
     "modules-center": [
 	"mpd",
 	"backlight",
-	"custom/weather",
+//	"custom/weather",
         "network",
 	"pulseaudio",
         "memory",
@@ -68,9 +66,9 @@
             "critical": 15
         },
         // Connected to AC
-        "format": " \n{capacity}%", // Icon: bolt
+        "format": "\n{capacity}", // Icon: bolt
         // Not connected to AC
-        "format-discharging": "{icon}\n{capacity}%",
+        "format-discharging": "{icon}\n{capacity}",
         "format-icons": [
             "",  // Icon: battery-empty
             "", // Icon: battery-quarter
@@ -98,7 +96,7 @@
 
     "cpu": {
         "interval": 5,
-        "format": "󰻠 \n{usage}%", // Icon: microchip
+        "format": "󰻠 \n{usage}", // Icon: microchip
         "states": {
           "warning": 70,
           "critical": 90
@@ -117,7 +115,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "󰄩 \n{}%", // Icon: memory
+        "format": "󰄩 \n{}", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -126,7 +124,7 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "󰖩\n{signalStrength}%", // Icon: wifi
+        "format-wifi": "󰖩\n{signalStrength}", // Icon: wifi
         "format-ethernet": "󰈀 ",
 	"format-disconnected": "\nIP",
         "tooltip-format": "{essid} {ifname}: {ipaddr}"
@@ -168,8 +166,8 @@
 
     "pulseaudio": {
         "scroll-step": 0,
-        "format": "{icon}\n{volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
+        "format": "{icon}\n{volume}",
+        "format-bluetooth": "{icon}  {volume}",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
@@ -183,7 +181,7 @@
     "temperature": {
       "critical-threshold": 80,
       "interval": 5,
-      "format": " {icon}\n{temperatureC}°C",
+      "format": "{icon}\n{temperatureC}",
       "format-icons": [
           "", // Icon: temperature-full
           "", // Icon: temperature-three-quarters
@@ -201,7 +199,7 @@
 
     "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}\n{percent}%",
+    "format": "{icon}\n{percent}",
     "format-icons": ["", ""]
 },
 

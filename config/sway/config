@@ -11,10 +11,7 @@ calibration_matrix 6 0 0 0 6 0
 pointer_accel  1 
 scroll_factor 3.5
 }
-#exec lxpolkit
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 
@@ -42,8 +39,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -q set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl -q set 5%+ 
 bindsym XF86Display exec systemctl suspend
 
-#obsidian
-bindsym $mod+o exec obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+o exec webcord --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 #mpd keyboard bindings
 bindsym $mod+p exec mpc toggle
@@ -55,8 +51,6 @@ bindsym $mod+comma exec songinfo
 
 #screenshots
 bindsym XF86KeyBoard exec grimshot save area
-#bindsym XF86Tools exec grimshot save screen
-
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -65,8 +59,10 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 }
 
-default_border pixel 1
+default_border pixel 2
 smart_borders true
+
+output * bg #352939 solid_color
 
 #colors
 # class                 border  bground text    indicator child_border
@@ -78,56 +74,16 @@ client.placeholder      #282A36 #282A36 #000000 #282A36   #282A36
 
 #start firefox
 bindsym $mod+g exec firefox
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run  -b -H 20 -p ">_<" 
 
-### Output configuration
+set $menu bemenu-run  -b -H 20 -p ":3" 
 
-#output * bg ~/Pictures/martin-adams-pink-mountains.jpg fill
-output * bg ~/Pictures/splash.jpg fill
-#output * bg ~/Pictures/pastel.png fill
-
-#output * bg #101421 solid_color 
-#
 # Example configuration:
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
  exec swayidle -w \
           timeout 600 'swaylock -f -c 000000' \
           timeout 750 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -149,9 +105,7 @@ output * bg ~/Pictures/splash.jpg fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -168,14 +122,13 @@ output * bg ~/Pictures/splash.jpg fill
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -187,6 +140,7 @@ output * bg ~/Pictures/splash.jpg fill
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -198,14 +152,8 @@ output * bg ~/Pictures/splash.jpg fill
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
+
+    # switch
     bindsym $mod+c splith
     bindsym $mod+v splitv
 
@@ -237,10 +185,10 @@ output * bg ~/Pictures/splash.jpg fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
 mode "resize" {
+
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
@@ -260,18 +208,13 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
-#
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     
 	swaybar_command waybar
     colors {

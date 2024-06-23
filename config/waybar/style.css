@@ -1,48 +1,31 @@
 /* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
-
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
+ * Used Alexays Configuration as Reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ * =========================================================================== 
+*/
 
 
 
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
-/*@define-color bgcolor #ebdbb2; */
-/* Reset all styles */
 * {
     all: unset;
-    background: #181818;
+    background: #352939;
     border-radius: 0;
     border: none;
     min-height: 0;
     margin: 0;
     padding: 0;
     font-weight: normal;
-  /*  color: @bgcolor */
+    min-width: 21px;
     
 }
 
-/* The whole bar */
-
 #waybar {
-    /* Original font is Cantarell */
     font-family:   "JetBrainsMono Nerd Font";
     font-size: 12px;
-    background: black; /*linear-gradient(120deg , #2a0f3b 0%, #000000 100%); */
+    background: black; 
 }
 
-window#waybar{
-}
+window#waybar{ }
 
-/* Each module */
 #battery,
 #clock,
 #cpu,
@@ -59,11 +42,6 @@ window#waybar{
     padding-top: 12px;
     padding-right: 2px;
 }
-
-
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
 
 #battery {
     color: @bgcolor;
@@ -96,7 +74,6 @@ window#waybar{
     border-bottom:  1px solid @bgcolor; 
 }
 
-/* 4B7395 */
 #clock {
     color: @bgcolor;
     font-weight: bold;
@@ -107,7 +84,6 @@ window#waybar{
 }
 #cpu {
     color: @bgcolor;
-  /* No styles */
 }
 
 #cpu.warning {
@@ -138,7 +114,6 @@ window#waybar{
 #mode {
     color: @bgcolor;
     border-top: 2px solid @bgcolor;
-    /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
 }
 
@@ -152,12 +127,10 @@ window#waybar{
 
 #pulseaudio {
     color: @bgcolor;
-    /* No styles */
 }
 
 #pulseaudio.muted {
     color: @bgcolor;
-    /* No styles */
 }
 
 #custom-spotify {
@@ -172,9 +145,7 @@ window#waybar{
     color: red;
 }
 
-#tray {
-    /* No styles */
-}
+#tray { }
 
 #window {
     font-weight: bold;
@@ -185,7 +156,7 @@ window#waybar{
     padding-bottom: 12px;
     padding-top: 12px;
 }
-/* #*/
+
 #workspaces button {
     border-top: 2px solid transparent;
     padding-bottom: 2px;
@@ -193,9 +164,7 @@ window#waybar{
     color: @bgcolor;
 }
 
-
 #workspaces button.focused {
-    /*color: #ff79c6; */
     font-weight: bold;
     color: #ff79c6;
 }
