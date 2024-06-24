@@ -142,7 +142,7 @@
             "3": "3", // Icon: code
             "4": "4", // Icon: terminal
             "5": "5", // Icon: terminal
-	    "urgent": "!{icon}",
+	    "urgent": "!",
             "!": "!",
         }
     },

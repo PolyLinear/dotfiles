@@ -39,7 +39,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -q set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl -q set 5%+ 
 bindsym XF86Display exec systemctl suspend
 
-bindsym $mod+o exec webcord --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+o exec start-discord.sh  2> /dev/null
 
 #mpd keyboard bindings
 bindsym $mod+p exec mpc toggle
