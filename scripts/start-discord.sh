@@ -1,7 +1,6 @@
 #!/bin/bash
-
 discord="webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
-time="${1:=20:00}"
+time="${1:-20:00}"
 limit=$(date -d "$time" +%s) 2>/dev/null
 
 if [ $? -ne 0 ]; then
