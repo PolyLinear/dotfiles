@@ -28,34 +28,26 @@
 
     "modules-center": [
 	"mpd",
+	"tray",
 	"backlight",
-//	"custom/weather",
+	"custom/weather",
         "network",
 	"pulseaudio",
         "memory",
         "cpu",
         "temperature",
         "battery",
-        "tray",
     ],
 
 
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
-    "custom/cmus":{
-    "format":" {}",
-    "max-length": 2,
-    "interval": 5,
-    "exec":"cmus-remote -C \"format_print '%t'\"",
-    "exec-if":"pgrep cmus",
-    "tooltip": true,
-    "tooltip-format": "",
-    },
+
 
     "custom/weather":{
-	"format":"󰖐\n{}",
-	"exec":"curl -s wttr.in/?format=%t | grep -o '[+-][0-9]*'",
+	"format":"󰅟\n{}",
+	"exec":"curl -s wttr.in/?format=%t | grep -o '[0-9]*'",
 	"interval": 1800,
     },
 
@@ -80,14 +72,13 @@
     },
 
     "clock#time": {
-        "interval": 1,
-      "format":"{:%H\n%M}",
+    "interval": 1,
+    "format":"{:%H\n%M}",
     "tooltip": true,
     "tooltip-format": "{:%H:%M:%S}"
     },
 
-      "interval": 10,
-      //"format": "  \n{:%e %b}", // Icon: calendar-alt
+    "interval": 10,
     "clock#date": {
       "interval": 10,
       "format":"{:%m\n%d}", // Icon: calendar-alt
@@ -96,7 +87,8 @@
 
     "cpu": {
         "interval": 5,
-        "format": "󰻠 \n{usage}", // Icon: microchip
+        "format": "󰍛\n{usage:02}", // Icon: microchip
+	"min-length": 2,
         "states": {
           "warning": 70,
           "critical": 90
@@ -115,7 +107,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "󰄩 \n{}", // Icon: memory
+        "format": "󰄩\n{:02}", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -124,9 +116,9 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "󰖩\n{signalStrength}", // Icon: wifi
+        "format-wifi": "󰤨\n{signalStrength}", // Icon: wifi
         "format-ethernet": "󰈀 ",
-	"format-disconnected": "\nIP",
+	"format-disconnected": "󰤨\nIP",
         "tooltip-format": "{essid} {ifname}: {ipaddr}"
     },
 
@@ -150,30 +142,21 @@
             "3": "3", // Icon: code
             "4": "4", // Icon: terminal
             "5": "5", // Icon: terminal
-	    "urgent": "!",
+	    "urgent": "!{icon}",
             "!": "!",
-          //  "focused": "",
-          //  "default": ""
         }
-	//    "persistent_workspaces": {
-//	"1": [],
-//	"2": [],
- //       "3": [], 
-  //      "4": [], 
-   //     "5": [] ,
-    //}
     },
 
     "pulseaudio": {
         "scroll-step": 0,
         "format": "{icon}\n{volume}",
         "format-bluetooth": "{icon}  {volume}",
-        "format-muted": "",
+        "format-muted": "\n{volume}",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
             "headset": "",
-            "default": [ "", ""]
+            "default": [ "", ""]
         },
         "on-click": "pavucontrol"
     },
@@ -183,24 +166,20 @@
       "interval": 5,
       "format": "{icon}\n{temperatureC}",
       "format-icons": [
-          "", // Icon: temperature-full
-          "", // Icon: temperature-three-quarters
-          "", // Icon: temperature-half
-          "", // Icon: temperature-quarter
-          ""  // Icon: temperature-empty
+          "",
       ],
       "tooltip": true
     },
 
     "tray": {
-        "icon-size": 21,
+        "icon-size": 18,
         "spacing": 10
     },
 
     "backlight": {
     "device": "intel_backlight",
     "format": "{icon}\n{percent}",
-    "format-icons": ["", ""]
+    "format-icons": ["󰌵"]
 },
 
 
@@ -213,9 +192,9 @@
 },
 
 "mpd": {
-    "format": "󰎆 \n{stateIcon}",
-    "format-disconnected": "N/A",
-    "format-stopped": "N/A",
+    "format": " ",
+    "format-disconnected": "",
+    "format-stopped": "",
     "interval": 10,
     "consume-icons": {
         "on": " " // Icon shows only when "consume" is on

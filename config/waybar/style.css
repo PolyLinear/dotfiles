@@ -5,6 +5,7 @@
 
 
 
+@define-color error-color  #c9545d;
 * {
     all: unset;
     background: #352939;
@@ -44,24 +45,29 @@ window#waybar{ }
 }
 
 #battery {
-    color: @bgcolor;
+    
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 #custom-weather{
-    color: @bgcolor;
+    
     padding-top: 12px;
     padding-bottom: 12px;
 }
 
 #mpd{
-    color: @bgcolor;
+    
     padding-top: 12px;
     padding-bottom: 12px;
 }
+
+
+#mpd.paused {
+    color: @error-color;
+}
+
 #battery.warning {
-    color: orange;
 }
 
 #battery.critical {
@@ -69,33 +75,33 @@ window#waybar{ }
 }
 
 #clock.date{
-    color: @bgcolor;
+    
     padding-bottom: 5px;
     border-bottom:  1px solid @bgcolor; 
 }
 
 #clock {
-    color: @bgcolor;
+    
     font-weight: bold;
 }
 #clock.time{
-    color: @bgcolor;
+    
     padding-top: 5px;
 }
 #cpu {
-    color: @bgcolor;
+    
 }
 
 #cpu.warning {
-    color: orange;
+    color: @error-color;
 }
 
 #cpu.critical {
-    color: red;
+    color: @error-color;
 }
 
 #memory {
-    color: @bgcolor;
+    
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -112,25 +118,26 @@ window#waybar{ }
 }
 
 #mode {
-    color: @bgcolor;
+    
     border-top: 2px solid @bgcolor;
     padding-bottom: 2px;
 }
 
 #network {
-    color: @bgcolor;
+    
 }
 
+
 #network.disconnected {
-    color: orange;
+    color: @error-color;
 }
 
 #pulseaudio {
-    color: @bgcolor;
+    
 }
 
 #pulseaudio.muted {
-    color: @bgcolor;
+    color: @error-color;
 }
 
 #custom-spotify {
@@ -138,11 +145,11 @@ window#waybar{ }
 }
 
 #temperature {
-    color: @bgcolor;
+    
 }
 
 #temperature.critical {
-    color: red;
+    color: @error-color;
 }
 
 #tray { }
@@ -152,7 +159,6 @@ window#waybar{ }
 }
 
 #backlight{
-    color: @bgcolor;
     padding-bottom: 12px;
     padding-top: 12px;
 }
@@ -161,7 +167,7 @@ window#waybar{ }
     border-top: 2px solid transparent;
     padding-bottom: 2px;
     padding-top: 2px;
-    color: @bgcolor;
+    
 }
 
 #workspaces button.focused {
@@ -170,8 +176,8 @@ window#waybar{ }
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    border-color: @error-color;
+    color: @error-color;
 }
 
 #idle_inhibitor{
