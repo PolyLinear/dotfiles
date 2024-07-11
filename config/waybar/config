@@ -107,7 +107,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "󰄩\n{:02}", // Icon: memory
+        "format": "\n{:02}", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90

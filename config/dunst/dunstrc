@@ -322,10 +322,18 @@
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
+    #background = "#352939"
+    #foreground = "#B29CA9" 
+    #frame_color = "#5A4551" 
+    #timeout = 10
+
+    #a88d9c
+    #ff79c6
+    #2e3440
 [urgency_normal]
     background = "#352939"
-    foreground = "#B29CA9" 
-    frame_color = "#5A4551" 
+    foreground = "#ffffff" 
+    frame_color = "#a88d9c" 
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon

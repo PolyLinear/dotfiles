@@ -61,6 +61,12 @@ local config = function()
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
+
+
+	--golang
+	require("lspconfig").gopls.setup({})
+	local gofmt = require('efmls-configs.formatters.gofmt')
+
 	local rustfmt = require("efmls-configs.formatters.rustfmt")
 
 	lspconfig.efm.setup({
@@ -70,6 +76,7 @@ local config = function()
 			"cpp",
 			"c",
 			"rust",
+			"go",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -86,6 +93,7 @@ local config = function()
 				cpp = { clang_format, clang_tidy },
 				--	tex = { texlab },
 				rust = { rustfmt },
+				go = {gofmt},
 			},
 		},
 	})

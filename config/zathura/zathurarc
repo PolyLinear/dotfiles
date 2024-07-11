@@ -34,4 +34,5 @@ set render-loading-fg           "#352939"
 
 set recolor-lightcolor          "#352939"
 set recolor-darkcolor           "#ffffff"
+set font                        "JetBrainsMono Nerd Font"
 set selection-clipboard clipboard
