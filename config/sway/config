@@ -75,7 +75,7 @@ client.placeholder      #282A36 #282A36 #000000 #282A36   #282A36
 #start firefox
 bindsym $mod+g exec firefox
 
-set $menu bemenu-run  -b -H 20 -p ":3" 
+set $menu bemenu-run -l "10" down -n --fn "JetBrainsMono Nerd Font 11" --af "#ffffff" --nf "#ffffff"   --hf "#ff79c6" -H 20 -p "" 
 
 # Example configuration:
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
