@@ -12,6 +12,12 @@ pointer_accel  1
 scroll_factor 3.5
 }
 
+input type:keyboard {
+repeat_delay 275
+repeat_rate 30 
+}
+ 
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 
@@ -62,7 +68,8 @@ exec_always {
 default_border pixel 2
 smart_borders true
 
-output * bg #352939 solid_color
+#output * bg #352939 solid_color
+output * bg ~/Pictures/mt.png  fill
 
 #colors
 # class                 border  bground text    indicator child_border
@@ -75,7 +82,7 @@ client.placeholder      #282A36 #282A36 #000000 #282A36   #282A36
 #start firefox
 bindsym $mod+g exec firefox
 
-set $menu bemenu-run -l "10" down -n --fn "JetBrainsMono Nerd Font 11" --af "#ffffff" --nf "#ffffff"   --hf "#ff79c6" -H 20 -p "" 
+set $menu bemenu-run -l "10" down -n --fn "JetBrainsMono Nerd Font 11" --fb "#352939"  --hb "#352939" --nb "#352939" --ab "#352939" --af "#ffffff" --nf "#ffffff"   --hf "#ff79c6" -H 20 -p "" 
 
 # Example configuration:
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -186,6 +193,7 @@ set $menu bemenu-run -l "10" down -n --fn "JetBrainsMono Nerd Font 11" --af "#ff
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
+set $pixel_amount 40px
 # Resizing containers:
 mode "resize" {
 
@@ -193,16 +201,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width $pixel_amount
+    bindsym $down resize grow height $pixel_amount
+    bindsym $up resize shrink height $pixel_amount
+    bindsym $right resize grow width $pixel_amount
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width $pixel_amount
+    bindsym Down resize grow height $pixel_amount
+    bindsym Up resize shrink height $pixel_amount
+    bindsym Right resize grow width $pixel_amount
 
     # Return to default mode
     bindsym Return mode "default"

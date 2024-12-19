@@ -34,6 +34,7 @@ local config = function()
 			"svelte",
 			"toml",
 			"cpp",
+			"glsl",
 		},
 		auto_install = true,
 		highlight = {
@@ -56,4 +57,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	config = config,
+	diagnostics = {
+		enable = false,
+	}
 }

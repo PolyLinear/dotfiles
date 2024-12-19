@@ -62,12 +62,18 @@ local config = function()
 		on_attach = on_attach,
 	})
 
+	--python
+ require("lspconfig").pyright.setup({})
+local autopep8 = require('efmls-configs.formatters.autopep8')
 
 	--golang
 	require("lspconfig").gopls.setup({})
 	local gofmt = require('efmls-configs.formatters.gofmt')
 
 	local rustfmt = require("efmls-configs.formatters.rustfmt")
+
+	--C#
+	require'lspconfig'.csharp_ls.setup{}
 
 	lspconfig.efm.setup({
 		filetypes = {
@@ -77,6 +83,8 @@ local config = function()
 			"c",
 			"rust",
 			"go",
+			"cs",
+			"python",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -91,9 +99,11 @@ local config = function()
 				lua = { luacheck, stylua },
 				sh = { shellcheck, shfmt },
 				cpp = { clang_format, clang_tidy },
+				c = { clang_format, clang_tidy },
 				--	tex = { texlab },
 				rust = { rustfmt },
 				go = {gofmt},
+				python = {autopep8},
 			},
 		},
 	})

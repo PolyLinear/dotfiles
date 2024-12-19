@@ -68,10 +68,11 @@ window#waybar{ }
 }
 
 #battery.warning {
+    color: @error-color;
 }
 
 #battery.critical {
-    color: red;
+    color: @error-color;
 }
 
 #clock.date{
