@@ -44,6 +44,10 @@ local config = function()
 	require("lspconfig").clangd.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		cmd = {
+			"clangd",
+			"--header-insertion=never",
+		}
 	})
 
 	--bash
@@ -75,6 +79,12 @@ local autopep8 = require('efmls-configs.formatters.autopep8')
 	--C#
 	require'lspconfig'.csharp_ls.setup{}
 
+
+	--javascript
+	require'lspconfig'.ts_ls.setup{}
+
+	--markdown
+	require'lspconfig'.marksman.setup{}
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -85,6 +95,7 @@ local autopep8 = require('efmls-configs.formatters.autopep8')
 			"go",
 			"cs",
 			"python",
+			"javascript"
 		},
 		init_options = {
 			documentFormatting = true,
@@ -107,13 +118,22 @@ local autopep8 = require('efmls-configs.formatters.autopep8')
 			},
 		},
 	})
+
+	-- Suppress LSP startup errors
+vim.lsp.handlers["window/showMessage"] = function(err, method, result, client_id)
+  if err and err.message:match("No matching language servers") then
+    return -- Silently ignore this specific error
+  end
+  -- Default behavior if it's not the error you want to silence
+  vim.lsp.handlers["window/showMessage"](err, method, result, client_id)
+end
 end
 
 local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
 vim.api.nvim_create_autocmd("BufWritePost", {
 	group = lsp_fmt_group,
 	callback = function()
-		local efm = vim.lsp.get_active_clients({ name = "efm" })
+		local efm = vim.lsp.get_clients({ name = "efm" })
 
 		if vim.tbl_isempty(efm) then
 			return

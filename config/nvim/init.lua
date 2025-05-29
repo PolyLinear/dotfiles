@@ -20,9 +20,9 @@ vim.api.nvim_set_hl(0, 'CursorLineNr', {fg = '#ffffff'})
 --[vim.cmd[[highlight Normal ctermbg=none guibg=none]]
 
 local set = vim.opt
-set.tabstop = 2;
-set.softtabstop = 2;
-set.shiftwidth = 2;
+set.tabstop = 4;
+set.softtabstop = 4;
+set.shiftwidth = 4;
 require("nvim-tree").setup()
 
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
